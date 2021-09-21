@@ -1,1 +1,30 @@
-<p>to-do-page works!</p>
+<div fxLayout="column" style="padding-top: 64px;" fxLayoutAlign="center center" fxLayoutGap="8px">
+    <button  mat-flat-button color="primary">Add task</button>
+    <div fxLayout="row" fxLayoutGap="32px" fxLayoutAlign="center center">
+        <mat-card>
+            <mat-list style="overflow: auto;">
+                <mat-list-item *ngFor="let item of listIncompleted">
+                    <div style="width: 400px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <span>
+                            {{item.name}}
+                        </span>
+                        <button mat-flat-button color="primary" (click)="completeTask(item)">Complete</button>
+                    </div>
+                </mat-list-item>
+            </mat-list>
+        </mat-card>
+    
+        <mat-card>
+            <mat-list style="overflow: auto;">
+                <mat-list-item *ngFor="let item of listCompleted">
+                    <div style="width: 400px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <span>
+                            {{item.name}}
+                        </span>
+                        <button mat-flat-button color="primary" (click)="deleteTask(item)">Delete</button>
+                    </div>
+                </mat-list-item>
+            </mat-list>
+        </mat-card>
+    </div>
+</div>
