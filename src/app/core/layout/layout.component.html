@@ -5,7 +5,7 @@
         </button>
 
         <a class="navbar-brand" [routerLink]="['/']" matTooltip="Home">
-            <h1>Rent and play</h1>
+            <h1>GPS Tracker & To do list</h1>
         </a>
 
         <span class="navbar-spacer"></span>
@@ -29,14 +29,14 @@
             <mat-nav-list>
                 <h3 mat-subheader>Home</h3>
 
-                <a mat-list-item [routerLink]="['/app/home']" routerLinkActive="active">
+                <a mat-list-item [routerLink]="['/app/gps-tracker']" routerLinkActive="active">
                     <mat-icon mat-list-icon> dashboard </mat-icon>
-                    <p mat-line>Dashboard</p>
+                    <p mat-line>GPS tracker</p>
                 </a>
 
-                <a mat-list-item [routerLink]="['/app/events']" routerLinkActive="active">
+                <a mat-list-item [routerLink]="['/app/to-do-list']" routerLinkActive="active">
                     <mat-icon mat-list-icon> business </mat-icon>
-                    <p mat-line>My events</p>
+                    <p mat-line>To do list</p>
                 </a>
                 <a id="push-bottom" mat-list-item [routerLink]="['/app/about']" routerLinkActive="active">
                     <mat-icon mat-list-icon> info_outline </mat-icon>

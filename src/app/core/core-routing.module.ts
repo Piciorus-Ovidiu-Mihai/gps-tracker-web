@@ -10,12 +10,20 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
 			{
-				path: 'home',
+				path: 'gps-tracker',
 				loadChildren: () => import('../apps/home/home.module').then((m) => m.HomeModule),
 			},
 			{
+				path: 'to-do-list',
+				loadChildren: () => import('../apps/to-do-page/to-do-page.module').then((m) => m.ToDoPageModule),
+			},
+			{
+				path: 'about',
+				loadChildren: () => import('../apps/about/about.module').then((m) => m.AboutModule),
+			},
+			{
 				path: '**',
-				redirectTo: 'home',
+				redirectTo: 'gps-tracker',
 			},
 		],
   },
