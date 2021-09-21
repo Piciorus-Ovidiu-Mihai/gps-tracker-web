@@ -1,4 +1,14 @@
-
 <div style="padding-top: 128px" fxLayout="column" fxLayoutAlign="center center">
-    <google-map [height]="600" [width]="1000"></google-map>
+    <google-map [zoom]="zoom" [center]="center" [options]="options" [height]="600" [width]="1000">
+        <map-marker
+        *ngFor="let marker of markers"
+        [position]="marker.position"
+        [label]="marker.label"
+        [title]="marker.title"
+        [options]="marker.options"
+      >
+      </map-marker>
+    </google-map>
+    <button (click)="zoomIn()">Zoom in</button>
+    <button (click)="zoomOut()">Zoom out</button>
 </div>
