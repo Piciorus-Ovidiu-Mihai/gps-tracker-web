@@ -8,11 +8,12 @@ import { AuthService } from 'src/app/libs/auth/auth.service';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent {
+export class LayoutComponent{
   mobileQuery: MediaQueryList;
   showSpinner = false;
   userName = '';
   isAdmin = false;
+  user: any;
   private _mobileQueryListener: () => void;
   private autoLogoutSubscription: Subscription = new Subscription();
 
@@ -21,6 +22,16 @@ export class LayoutComponent {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.userName = this.authService.userValue.email ? this.authService.userValue.email : '';
+    this.user = this.authService.userValue;
+    this.isAdmin = this.checkAdmin(this.user);
+  }
+
+  checkAdmin(user: any){
+    let isAdmin = false;
+    user.roles.forEach((role : any) => {
+      if(role.role === "ADMIN") isAdmin = true;
+    });
+    return isAdmin;
   }
 
   ngOnDestroy(): void {

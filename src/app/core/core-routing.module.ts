@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AdminGuard } from '../libs/guards/admin.guard';
 import { LayoutComponent } from './layout/layout.component';
 
 
@@ -12,6 +13,7 @@ const routes: Routes = [
 			{
 				path: 'gps-tracker',
 				loadChildren: () => import('../apps/home/home.module').then((m) => m.HomeModule),
+				canActivate: [AdminGuard]
 			},
 			{
 				path: 'to-do-list',

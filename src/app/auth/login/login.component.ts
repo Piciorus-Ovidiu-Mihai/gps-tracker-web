@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { finalize } from 'rxjs/operators';
 import { AuthService } from 'src/app/libs/auth/auth.service';
 
 @Component({
@@ -22,12 +21,22 @@ export class LoginComponent {
     if (form.invalid) return;
     try {
       this.loading = true;
-      await this.authService.login(this.email, this.password).pipe(finalize(() => this.router.navigateByUrl('/'))).toPromise();
+      const result = await this.authService.login(this.email, this.password).toPromise();
+      if(!this.checkAdmin(result)) this.router.navigateByUrl('/app/to-do-list');
+      else this.router.navigateByUrl('/app/gps-tracker');
     } catch (e) {
       this.invalidCredentials = true;
     } finally {
       this.loading = false;
     }
+  }
+
+  checkAdmin(user: any){
+    let isAdmin = false;
+    user.roles.forEach((role : any) => {
+      if(role.role === "ADMIN") isAdmin = true;
+    });
+    return isAdmin;
   }
 
   goToRegister() {

@@ -27,13 +27,16 @@
   </mat-card>
   <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center">
     <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px">
-      <google-map id="map" style="padding-top: 32px" [zoom]="zoom" [center]="center" [options]="options" [height]="600" [width]="1000">
+      <google-map id="map" style="padding-top: 32px" [zoom]="zoom" [center]="center" [options]="options" [height]="600" [width]="1500">
         <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
           [title]="marker.title" [options]="marker.options">
         </map-marker>
       </google-map>
-      <button style="width: 200px;" mat-flat-button color="primary" (click)="zoomIn()">Zoom in</button>
-      <button style="width: 200px;" mat-flat-button color="primary" (click)="zoomOut()">Zoom out</button>
+      <div fxLayout="row" fxLayoutGap="8px">
+        <button style="width: 200px;" mat-flat-button color="primary" (click)="zoomIn()">Zoom in</button>
+        <button style="width: 200px;" mat-flat-button color="primary" (click)="zoomOut()">Zoom out</button>
+      </div>
+        
     </div>
   </div>
 </div>

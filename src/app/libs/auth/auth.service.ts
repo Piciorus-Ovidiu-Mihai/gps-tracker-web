@@ -20,12 +20,12 @@ export class AuthService {
     this.user = this.userSubject.asObservable();
   }
 
-  get userValue(): User {
+  get userValue(): any {
     return this.userSubject.value;
   }
 
   login(email: string, password: string) {
-    return this.http.post(this.basePath + '/users/login', { email: email, password: password }).pipe(map((user: User) => {
+    return this.http.post(this.basePath + '/users/login', { email: email, password: password }).pipe(map((user: any) => {
 
       user.authdata = window.btoa(email + ':' + password);
       localStorage.setItem('user', JSON.stringify(user));

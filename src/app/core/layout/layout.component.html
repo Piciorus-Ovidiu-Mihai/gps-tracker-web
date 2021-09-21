@@ -27,9 +27,8 @@
         <mat-sidenav #snav [opened]="!mobileQuery.matches" [mode]="mobileQuery.matches ? 'over' : 'side'"
             [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" class="sidenav">
             <mat-nav-list>
-                <h3 mat-subheader>Home</h3>
 
-                <a mat-list-item [routerLink]="['/app/gps-tracker']" routerLinkActive="active">
+                <a *ngIf="isAdmin" mat-list-item [routerLink]="['/app/gps-tracker']" routerLinkActive="active">
                     <mat-icon mat-list-icon> dashboard </mat-icon>
                     <p mat-line>GPS tracker</p>
                 </a>
