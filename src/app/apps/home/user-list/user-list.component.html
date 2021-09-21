@@ -1,0 +1,12 @@
+<mat-card class="table-users">
+    <span>Users</span>
+    <mat-list-item *ngFor="let user of users" fxLayout="column" style="padding-top:8px">
+        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+            <span>
+                {{user.email}}
+            </span>
+            <span class="square" [style.background-color]="intToRgb(hashCode(user.email))">
+            </span>
+        </div>
+    </mat-list-item>
+</mat-card>

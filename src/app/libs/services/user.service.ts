@@ -12,7 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  getAllLocations(){
-    return this.http.get(this.basePath + 'locations/all-locations');
+  getUsers(){
+    return this.http.get(this.basePath + '/users/users');
   }
 }

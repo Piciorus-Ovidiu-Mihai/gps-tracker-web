@@ -1,14 +1,39 @@
-<div style="padding-top: 128px" fxLayout="column" fxLayoutAlign="center center">
-    <google-map [zoom]="zoom" [center]="center" [options]="options" [height]="600" [width]="1000">
-        <map-marker
-        *ngFor="let marker of markers"
-        [position]="marker.position"
-        [label]="marker.label"
-        [title]="marker.title"
-        [options]="marker.options"
-      >
-      </map-marker>
-    </google-map>
-    <button (click)="zoomIn()">Zoom in</button>
-    <button (click)="zoomOut()">Zoom out</button>
+<div style="padding-top:32px" fxLayout="column" fxLayoutGap="8px" fxLayoutAlign="center center">
+  <mat-card fxLayout="row" fxLayoutGap="8px">
+    <mat-form-field fxFlex="40" color="primary" appearance="outline">
+      <mat-label>Start date</mat-label>
+      <input [(ngModel)]="startDate" (ngModelChange)="onChange()" matInput [matDatepicker]="startDatePicker"
+        name="startDate" />
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="40" color="primary" appearance="outline">
+      <mat-label>End Date</mat-label>
+      <input [(ngModel)]="endDate" (ngModelChange)="onChange()" matInput [matDatepicker]="endDatePicker"
+        name="endDate" />
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Users</mat-label>
+      <mat-select [(ngModel)]="user" (ngModelChange)="onChange()" name="user">
+        <mat-option *ngFor="let user of users" [value]="user.id">
+          {{ user.email }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card>
+  <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center">
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px">
+      <google-map id="map" style="padding-top: 32px" [zoom]="zoom" [center]="center" [options]="options" [height]="600" [width]="1000">
+        <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
+          [title]="marker.title" [options]="marker.options">
+        </map-marker>
+      </google-map>
+      <button style="width: 200px;" mat-flat-button color="primary" (click)="zoomIn()">Zoom in</button>
+      <button style="width: 200px;" mat-flat-button color="primary" (click)="zoomOut()">Zoom out</button>
+    </div>
+  </div>
 </div>

@@ -20,6 +20,7 @@ export class LayoutComponent {
     this.mobileQuery = this.media.matchMedia('(max-width: 1000px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.userName = this.authService.userValue.email ? this.authService.userValue.email : '';
   }
 
   ngOnDestroy(): void {

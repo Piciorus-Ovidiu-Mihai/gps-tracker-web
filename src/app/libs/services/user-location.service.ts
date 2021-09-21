@@ -15,5 +15,9 @@ export class UserLocationService {
   getAllLocations() {
     return this.http.get(this.basePath + '/locations/all-locations');
   }
+
+  getLocationBetweenDates(startDate: string, endDate: string, userId: number) {
+    return this.http.post(this.basePath + '/locations/filterByStartAndEnd', {startDate: startDate, endDate: endDate, userId: userId});
+  }
 }
 
