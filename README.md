@@ -1,27 +1,28 @@
-# GpsTrackerWeb
+# 🗺️ GPS Tracker
+This is an api for a GPS tracker and a to do list application. This project was made using Spring Boot. Also, there is a client project for mobile, using Java and Android Studio. The front-end part was realized with Angular and the repository is available on 🌍[Web](https://github.com/Piciorus-Ovidiu-Mihai/GPS-tracker-web).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
+## 💎 What it does ? 
+The purpose of this application is to track the location sent from the mobile application. 
+As a future, the web application has a to do list, for everyone who wants to keep their work.
 
-## Development server
+## 🛠️ Prerequisite
+* ⚙️ Java SDK
+* ⚙️ Android Studio 
+* ⚙️ A phone with Android 10 or an emulator 
+* ⚙️ Angular
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## 🚀 Getting Started
+* ⭐ Clone the repository
+* ⭐ Setup the database using MySql
+* ⭐ Build & Run Java application
+* ⭐ Build & Run Android application
+* ⭐ Build Angular Application
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 🖥️ What I used ?
+* 💿 `Angular`
+* 🧮 `Typescript`
+* ⌨️ `HTML & CSS`
+* 📱 `Android`
+* 💽 `Spring Boot`
+* 💻 `MySql`
+* 💻 `Java`
